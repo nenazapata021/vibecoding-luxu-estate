@@ -21,7 +21,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   };
 
   return (
-    <article className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-card hover:shadow-soft transition-all duration-300 group cursor-pointer h-full flex flex-col">
+    <article className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-soft transition-all duration-300 group cursor-pointer h-full flex flex-col">
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           alt={property.title}
@@ -36,7 +36,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-sm transition-colors cursor-pointer ${
             isFavorite
               ? "bg-mosque text-white"
-              : "bg-white/90 dark:bg-black/50 text-nordic-dark dark:text-white hover:bg-mosque hover:text-white"
+              : "bg-white/90 text-nordic-dark hover:bg-mosque hover:text-white"
           }`}
         >
           <span className="material-icons text-lg">
@@ -54,16 +54,16 @@ export default function PropertyCard({ property }: PropertyCardProps) {
       <div className="p-4 flex flex-col flex-grow justify-between">
         <div>
           <div className="flex justify-between items-baseline mb-2">
-            <h3 className="font-bold text-lg text-nordic-dark dark:text-white">
+            <h3 className="font-bold text-lg text-nordic-dark">
               {formatPrice(property.price, property.type)}
             </h3>
           </div>
-          <h4 className="text-nordic-dark dark:text-gray-200 font-medium truncate mb-1 group-hover:text-mosque transition-colors">
+          <h4 className="text-nordic-dark font-medium truncate mb-1 group-hover:text-mosque transition-colors">
             {property.title}
           </h4>
           <p className="text-nordic-muted text-xs mb-4">{property.location}</p>
         </div>
-        <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100 dark:border-white/10">
+        <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100">
           <div className="flex items-center gap-1 text-nordic-muted text-xs">
             <span className="material-icons text-sm text-mosque/80">king_bed</span> {property.beds}
           </div>

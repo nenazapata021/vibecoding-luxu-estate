@@ -6,7 +6,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-nordic-dark/10 dark:border-white/5">
+    <nav className="sticky top-0 z-50 bg-background-light/95 backdrop-blur-md border-b border-nordic-dark/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -14,7 +14,7 @@ export default function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-nordic flex items-center justify-center">
               <span className="material-icons text-white text-lg">apartment</span>
             </div>
-            <span className="text-xl font-semibold tracking-tight text-nordic-dark dark:text-white">
+            <span className="text-xl font-semibold tracking-tight text-nordic-dark">
               LuxeEstate
             </span>
           </div>
@@ -28,19 +28,19 @@ export default function Navbar() {
               Buy
             </a>
             <a
-              className="text-nordic-dark/70 dark:text-white/70 hover:text-nordic-dark dark:hover:text-white font-medium text-sm hover:border-b-2 hover:border-nordic-dark/20 dark:hover:border-white/20 px-1 py-1 transition-all"
+              className="text-nordic-dark/70 hover:text-nordic-dark font-medium text-sm hover:border-b-2 hover:border-nordic-dark/20 px-1 py-1 transition-all"
               href="#"
             >
               Rent
             </a>
             <a
-              className="text-nordic-dark/70 dark:text-white/70 hover:text-nordic-dark dark:hover:text-white font-medium text-sm hover:border-b-2 hover:border-nordic-dark/20 dark:hover:border-white/20 px-1 py-1 transition-all"
+              className="text-nordic-dark/70 hover:text-nordic-dark font-medium text-sm hover:border-b-2 hover:border-nordic-dark/20 px-1 py-1 transition-all"
               href="#"
             >
               Sell
             </a>
             <a
-              className="text-nordic-dark/70 dark:text-white/70 hover:text-nordic-dark dark:hover:text-white font-medium text-sm hover:border-b-2 hover:border-nordic-dark/20 dark:hover:border-white/20 px-1 py-1 transition-all"
+              className="text-nordic-dark/70 hover:text-nordic-dark font-medium text-sm hover:border-b-2 hover:border-nordic-dark/20 px-1 py-1 transition-all"
               href="#"
             >
               Saved Homes
@@ -49,16 +49,16 @@ export default function Navbar() {
 
           {/* Right Icons */}
           <div className="flex items-center space-x-6">
-            <button className="text-nordic-dark hover:text-mosque dark:text-gray-400 dark:hover:text-white transition-colors cursor-pointer">
+            <button className="text-nordic-dark hover:text-mosque transition-colors cursor-pointer">
               <span className="material-icons">search</span>
             </button>
-            <button className="text-nordic-dark hover:text-mosque dark:text-gray-400 dark:hover:text-white transition-colors relative cursor-pointer">
+            <button className="text-nordic-dark hover:text-mosque transition-colors relative cursor-pointer">
               <span className="material-icons">notifications_none</span>
-              <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-background-light dark:border-background-dark"></span>
+              <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-background-light"></span>
             </button>
 
             {/* Profile Avatar */}
-            <button className="flex items-center gap-2 pl-2 border-l border-nordic-dark/10 dark:border-white/10 ml-2 cursor-pointer">
+            <button className="flex items-center gap-2 pl-2 border-l border-nordic-dark/10 ml-2 cursor-pointer">
               <div className="w-9 h-9 rounded-full bg-gray-200 overflow-hidden ring-2 ring-transparent hover:ring-mosque transition-all">
                 <img
                   alt="Profile"
@@ -71,7 +71,7 @@ export default function Navbar() {
             {/* Mobile Hamburger Menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-nordic-dark dark:text-white hover:text-mosque transition-colors focus:outline-none cursor-pointer"
+              className="md:hidden text-nordic-dark hover:text-mosque transition-colors focus:outline-none cursor-pointer"
             >
               <span className="material-icons">{isOpen ? "close" : "menu"}</span>
             </button>
@@ -81,7 +81,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Panel */}
       <div
-        className={`md:hidden border-t border-nordic-dark/5 bg-background-light dark:bg-background-dark overflow-hidden transition-all duration-300 ${
+        className={`md:hidden border-t border-nordic-dark/5 bg-background-light overflow-hidden transition-all duration-300 ${
           isOpen ? "h-48 border-b" : "h-0"
         }`}
       >
@@ -93,19 +93,19 @@ export default function Navbar() {
             Buy
           </a>
           <a
-            className="block px-3 py-2 rounded-md text-base font-medium text-nordic-dark dark:text-white hover:bg-black/5 dark:hover:bg-white/5"
+            className="block px-3 py-2 rounded-md text-base font-medium text-nordic-dark hover:bg-black/5"
             href="#"
           >
             Rent
           </a>
           <a
-            className="block px-3 py-2 rounded-md text-base font-medium text-nordic-dark dark:text-white hover:bg-black/5 dark:hover:bg-white/5"
+            className="block px-3 py-2 rounded-md text-base font-medium text-nordic-dark hover:bg-black/5"
             href="#"
           >
             Sell
           </a>
           <a
-            className="block px-3 py-2 rounded-md text-base font-medium text-nordic-dark dark:text-white hover:bg-black/5 dark:hover:bg-white/5"
+            className="block px-3 py-2 rounded-md text-base font-medium text-nordic-dark hover:bg-black/5"
             href="#"
           >
             Saved Homes

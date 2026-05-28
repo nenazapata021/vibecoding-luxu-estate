@@ -10,7 +10,6 @@
   --color-clear-day: #EEF6F6;
   
   --color-background-light: #EEF6F6;
-  --color-background-dark: #0f231f;
   --color-nordic-dark: #19322F;
   --color-nordic-muted: #5C706D;
   
@@ -24,13 +23,6 @@
 :root {
   --background: #EEF6F6;
   --foreground: #19322F;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f231f;
-    --foreground: #ffffff;
-  }
 }
 
 body {

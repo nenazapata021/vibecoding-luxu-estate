@@ -61,10 +61,10 @@ export default function Home() {
         {/* Hero Section */}
         <section className="py-12 md:py-16">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-nordic-dark dark:text-white leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-nordic-dark leading-tight">
               Find your{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 font-medium text-nordic-dark dark:text-white">sanctuary</span>
+                <span className="relative z-10 font-medium text-nordic-dark">sanctuary</span>
                 <span className="absolute bottom-2 left-0 w-full h-3 bg-mosque/20 -rotate-1 z-0"></span>
               </span>
               .
@@ -78,7 +78,7 @@ export default function Home() {
                 </span>
               </div>
               <input
-                className="block w-full pl-12 pr-32 py-4 rounded-xl border-none bg-white dark:bg-white/5 text-nordic-dark dark:text-white shadow-soft placeholder-nordic-muted/60 focus:ring-2 focus:ring-mosque focus:bg-white dark:focus:bg-white/10 transition-all text-lg focus:outline-none"
+                className="block w-full pl-12 pr-32 py-4 rounded-xl border-none bg-white text-nordic-dark shadow-soft placeholder-nordic-muted/60 focus:ring-2 focus:ring-mosque focus:bg-white transition-all text-lg focus:outline-none"
                 placeholder="Search by city, neighborhood, or address..."
                 type="text"
                 value={searchInputVal}
@@ -106,7 +106,7 @@ export default function Home() {
                     className={`whitespace-nowrap px-5 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${
                       isActive
                         ? "bg-nordic-dark text-white shadow-lg shadow-nordic-dark/10"
-                        : "bg-white dark:bg-white/5 border border-nordic-dark/5 text-nordic-muted hover:text-nordic-dark dark:hover:text-white hover:border-mosque/50 hover:bg-mosque/5"
+                        : "bg-white border border-nordic-dark/5 text-nordic-muted hover:text-nordic-dark hover:border-mosque/50 hover:bg-mosque/5"
                     }`}
                   >
                     {cat.label}
@@ -116,14 +116,14 @@ export default function Home() {
               <div className="w-px h-6 bg-nordic-dark/10 mx-2"></div>
               <button
                 onClick={() => setShowFiltersAlert(true)}
-                className="whitespace-nowrap flex items-center gap-1 px-4 py-2 rounded-full text-nordic-dark dark:text-white font-medium text-sm hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                className="whitespace-nowrap flex items-center gap-1 px-4 py-2 rounded-full text-nordic-dark font-medium text-sm hover:bg-black/5 transition-colors cursor-pointer"
               >
                 <span className="material-icons text-base">tune</span> Filters
               </button>
             </div>
             
             {showFiltersAlert && (
-              <div className="bg-hint-of-green/40 border border-mosque/20 text-nordic-dark dark:text-white p-4 rounded-xl flex items-center justify-between text-sm max-w-xl mx-auto animation-fade-in">
+              <div className="bg-hint-of-green/40 border border-mosque/20 text-nordic-dark p-4 rounded-xl flex items-center justify-between text-sm max-w-xl mx-auto animation-fade-in">
                 <span>Advanced filters are under development. You can use the search bar or categories above!</span>
                 <button 
                   onClick={() => setShowFiltersAlert(false)} 
@@ -140,11 +140,11 @@ export default function Home() {
         <section className="mb-16">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-light text-nordic-dark dark:text-white">Featured Collections</h2>
+              <h2 className="text-2xl font-light text-nordic-dark">Featured Collections</h2>
               <p className="text-nordic-muted mt-1 text-sm">Curated properties for the discerning eye.</p>
             </div>
             <a
-              className="hidden sm:flex items-center gap-1 text-sm font-medium text-mosque dark:text-primary hover:opacity-70 transition-opacity"
+              className="hidden sm:flex items-center gap-1 text-sm font-medium text-mosque hover:opacity-70 transition-opacity"
               href="#"
             >
               View all <span className="material-icons text-sm">arrow_forward</span>
@@ -162,18 +162,18 @@ export default function Home() {
         <section>
           <div className="flex items-end justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-light text-nordic-dark dark:text-white">New in Market</h2>
+              <h2 className="text-2xl font-light text-nordic-dark">New in Market</h2>
               <p className="text-nordic-muted mt-1 text-sm">Fresh opportunities added this week.</p>
             </div>
             
             {/* Rent/Buy Tabs */}
-            <div className="flex bg-white dark:bg-white/5 p-1 rounded-lg">
+            <div className="flex bg-white p-1 rounded-lg">
               <button
                 onClick={() => setActiveTxType("all")}
                 className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all cursor-pointer ${
                   activeTxType === "all"
                     ? "bg-nordic-dark text-white shadow-sm"
-                    : "text-nordic-muted hover:text-nordic-dark dark:hover:text-white"
+                    : "text-nordic-muted hover:text-nordic-dark"
                 }`}
               >
                 All
@@ -183,7 +183,7 @@ export default function Home() {
                 className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all cursor-pointer ${
                   activeTxType === "sale"
                     ? "bg-nordic-dark text-white shadow-sm"
-                    : "text-nordic-muted hover:text-nordic-dark dark:hover:text-white"
+                    : "text-nordic-muted hover:text-nordic-dark"
                 }`}
               >
                 Buy
@@ -193,7 +193,7 @@ export default function Home() {
                 className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all cursor-pointer ${
                   activeTxType === "rent"
                     ? "bg-nordic-dark text-white shadow-sm"
-                    : "text-nordic-muted hover:text-nordic-dark dark:hover:text-white"
+                    : "text-nordic-muted hover:text-nordic-dark"
                 }`}
               >
                 Rent
@@ -209,7 +209,7 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-white dark:bg-white/5 rounded-xl">
+            <div className="text-center py-12 bg-white rounded-xl">
               <span className="material-icons text-4xl text-nordic-muted mb-2">search_off</span>
               <p className="text-nordic-muted">No properties found matching your criteria.</p>
             </div>
@@ -220,7 +220,7 @@ export default function Home() {
             <div className="mt-12 text-center">
               <button
                 onClick={() => setVisibleCount((prev) => prev + 4)}
-                className="px-8 py-3 bg-white dark:bg-white/5 border border-nordic-dark/10 dark:border-white/10 hover:border-mosque hover:text-mosque text-nordic-dark dark:text-white font-medium rounded-lg transition-all hover:shadow-md cursor-pointer"
+                className="px-8 py-3 bg-white border border-nordic-dark/10 hover:border-mosque hover:text-mosque text-nordic-dark font-medium rounded-lg transition-all hover:shadow-md cursor-pointer"
               >
                 Load more properties
               </button>
