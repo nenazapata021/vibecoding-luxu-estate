@@ -25,10 +25,10 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     <article className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-soft transition-all duration-300 group cursor-pointer h-full flex flex-col relative">
       <Link
         aria-label={`Ver detalle de ${property.title}`}
-        className="absolute inset-0 z-0 rounded-xl"
+        className="absolute inset-0 z-20 rounded-xl"
         href={`/properties/${property.slug}`}
       />
-      <div className="relative aspect-[4/3] overflow-hidden z-10">
+      <div className="relative aspect-[4/3] overflow-hidden z-0">
         <img
           alt={property.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -44,7 +44,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             e.stopPropagation();
             setIsFavorite(!isFavorite);
           }}
-          className={`absolute top-3 right-3 z-20 p-2 rounded-full backdrop-blur-sm transition-colors cursor-pointer ${
+          className={`absolute top-3 right-3 z-30 p-2 rounded-full backdrop-blur-sm transition-colors cursor-pointer ${
             isFavorite
               ? "bg-mosque text-white"
               : "bg-white/90 text-nordic-dark hover:bg-mosque hover:text-white"

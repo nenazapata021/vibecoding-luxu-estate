@@ -23,10 +23,10 @@ export default function FeaturedCard({ property }: FeaturedCardProps) {
     <div className="group relative rounded-xl overflow-hidden shadow-soft bg-white cursor-pointer flex flex-col h-full">
       <Link
         aria-label={`Ver detalle de ${property.title}`}
-        className="absolute inset-0 z-0 rounded-xl"
+        className="absolute inset-0 z-20 rounded-xl"
         href={`/properties/${property.slug}`}
       />
-      <div className="aspect-[4/3] w-full overflow-hidden relative z-10">
+      <div className="aspect-[4/3] w-full overflow-hidden relative z-0">
         <img
           alt={property.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -40,7 +40,7 @@ export default function FeaturedCard({ property }: FeaturedCardProps) {
             e.stopPropagation();
             setIsFavorite(!isFavorite);
           }}
-          className={`absolute top-4 right-4 z-20 w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition-all cursor-pointer ${
+          className={`absolute top-4 right-4 z-30 w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition-all cursor-pointer ${
             isFavorite
               ? "bg-mosque text-white"
               : "bg-white/90 text-nordic-dark hover:bg-mosque hover:text-white"
