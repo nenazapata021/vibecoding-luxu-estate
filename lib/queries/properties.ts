@@ -48,6 +48,10 @@ function toSlug(value: string) {
     .replace(/^-+|-+$/g, "");
 }
 
+function matchesSlug(property: Property, slug: string) {
+  return property.slug === slug || toSlug(property.title) === slug || property.id === slug;
+}
+
 function normalizeProperty(property: Partial<Property> & { title: string }): Property {
   return {
     id: property.id ?? property.title,
@@ -171,10 +175,7 @@ export async function getPropertyBySlug(
 ): Promise<PropertyWithImages | null> {
   const supabase = createServerClient();
 
-  const { data, error } = await supabase
-    .from("properties")
-    .select(
-      `
+  const selectWithImages = `
         *,
         property_images (
           id,
@@ -182,26 +183,51 @@ export async function getPropertyBySlug(
           image_url,
           sort_order
         )
-      `
-    )
+      `;
+
+  const { data: propertyData, error: propertyError } = await supabase
+    .from("properties")
+    .select(selectWithImages)
     .eq("slug", slug)
     .maybeSingle();
 
-  if (error) {
-    console.error("Error al obtener la propiedad por slug:", error.message);
+  if (propertyData) {
+    const property = propertyData as Partial<PropertyWithImages> & { title: string };
+
+    return {
+      ...normalizeProperty(property),
+      property_images: ((property.property_images ?? []) as PropertyImage[]).sort(
+        (left, right) => left.sort_order - right.sort_order
+      ),
+    };
+  }
+
+  if (propertyError) {
+    console.warn(
+      "Fallback por slug no disponible, usando búsqueda amplia:",
+      propertyError.message
+    );
+  }
+
+  const { data: fallbackData, error: fallbackError } = await supabase
+    .from("properties")
+    .select("*");
+
+  if (fallbackError) {
+    console.error("Error al obtener propiedades para fallback de slug:", fallbackError.message);
     return null;
   }
 
-  if (!data) {
+  const matchedProperty = (fallbackData ?? [])
+    .map((property) => normalizeProperty(property as Property))
+    .find((property) => matchesSlug(property, slug));
+
+  if (!matchedProperty) {
     return null;
   }
-
-  const property = data as Partial<PropertyWithImages> & { title: string };
 
   return {
-    ...normalizeProperty(property),
-    property_images: ((property.property_images ?? []) as PropertyImage[]).sort(
-      (left, right) => left.sort_order - right.sort_order
-    ),
+    ...matchedProperty,
+    property_images: [],
   };
 }
