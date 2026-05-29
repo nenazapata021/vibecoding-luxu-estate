@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import Navbar from "./components/Navbar";
 import FeaturedCard from "./components/FeaturedCard";
@@ -147,12 +148,12 @@ export default async function Home({ searchParams }: HomePageProps) {
               <p className="text-nordic-muted text-lg">
                 No se encontraron propiedades con esos criterios.
               </p>
-              <a
+              <Link
                 href="/"
                 className="mt-4 inline-block text-mosque font-medium hover:underline"
               >
                 Limpiar filtros
-              </a>
+              </Link>
             </div>
           )}
 

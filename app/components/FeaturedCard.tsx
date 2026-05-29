@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { FeaturedProperty } from "@/lib/queries/properties";
+import { Property } from "@/lib/queries/properties";
 
 interface FeaturedCardProps {
-  property: FeaturedProperty;
+  property: Property;
 }
 
 export default function FeaturedCard({ property }: FeaturedCardProps) {
@@ -27,7 +27,7 @@ export default function FeaturedCard({ property }: FeaturedCardProps) {
           src={property.image_url}
         />
         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-nordic-dark">
-          {property.tag}
+          Featured
         </div>
         <button
           onClick={(e) => {

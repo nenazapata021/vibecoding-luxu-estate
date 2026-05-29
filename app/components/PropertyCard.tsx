@@ -28,6 +28,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           src={property.image_url}
         />
+        {property.is_featured && (
+          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-nordic-dark text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full">
+            Featured
+          </div>
+        )}
         <button
           onClick={(e) => {
             e.stopPropagation();

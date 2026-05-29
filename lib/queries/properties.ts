@@ -15,19 +15,7 @@ export interface Property {
   category: "house" | "apartment" | "villa" | "penthouse";
   image_url: string;
   is_favorite: boolean;
-}
-
-export interface FeaturedProperty {
-  id: string;
-  title: string;
-  location: string;
-  price: number;
-  beds: number;
-  baths: number;
-  area: number;
-  tag: string;
-  image_url: string;
-  is_favorite: boolean;
+  is_featured: boolean;
 }
 
 interface GetPropertiesOptions {
@@ -118,12 +106,13 @@ export async function getPropertiesCount({
 }
 
 // Obtener propiedades destacadas
-export async function getFeaturedProperties(): Promise<FeaturedProperty[]> {
+export async function getFeaturedProperties(): Promise<Property[]> {
   const supabase = createServerClient();
 
   const { data, error } = await supabase
-    .from("featured_properties")
+    .from("properties")
     .select("*")
+    .eq("is_featured", true)
     .order("created_at", { ascending: false })
     .limit(2);
 
@@ -132,5 +121,5 @@ export async function getFeaturedProperties(): Promise<FeaturedProperty[]> {
     return [];
   }
 
-  return (data as FeaturedProperty[]) ?? [];
+  return (data as Property[]) ?? [];
 }
