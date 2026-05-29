@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Property } from "@/lib/queries/properties";
 
@@ -21,8 +22,13 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   };
 
   return (
-    <article className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-soft transition-all duration-300 group cursor-pointer h-full flex flex-col">
-      <div className="relative aspect-[4/3] overflow-hidden">
+    <article className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-soft transition-all duration-300 group cursor-pointer h-full flex flex-col relative">
+      <Link
+        aria-label={`Ver detalle de ${property.title}`}
+        className="absolute inset-0 z-0 rounded-xl"
+        href={`/properties/${property.slug}`}
+      />
+      <div className="relative aspect-[4/3] overflow-hidden z-10">
         <img
           alt={property.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -38,7 +44,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             e.stopPropagation();
             setIsFavorite(!isFavorite);
           }}
-          className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-sm transition-colors cursor-pointer ${
+          className={`absolute top-3 right-3 z-20 p-2 rounded-full backdrop-blur-sm transition-colors cursor-pointer ${
             isFavorite
               ? "bg-mosque text-white"
               : "bg-white/90 text-nordic-dark hover:bg-mosque hover:text-white"
@@ -56,7 +62,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           {property.type === "sale" ? "FOR SALE" : "FOR RENT"}
         </div>
       </div>
-      <div className="p-4 flex flex-col flex-grow justify-between">
+      <div className="p-4 flex flex-col flex-grow justify-between relative z-10">
         <div>
           <div className="flex justify-between items-baseline mb-2">
             <h3 className="font-bold text-lg text-nordic-dark">

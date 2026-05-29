@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Property } from "@/lib/queries/properties";
 
@@ -20,7 +21,12 @@ export default function FeaturedCard({ property }: FeaturedCardProps) {
 
   return (
     <div className="group relative rounded-xl overflow-hidden shadow-soft bg-white cursor-pointer flex flex-col h-full">
-      <div className="aspect-[4/3] w-full overflow-hidden relative">
+      <Link
+        aria-label={`Ver detalle de ${property.title}`}
+        className="absolute inset-0 z-0 rounded-xl"
+        href={`/properties/${property.slug}`}
+      />
+      <div className="aspect-[4/3] w-full overflow-hidden relative z-10">
         <img
           alt={property.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -34,7 +40,7 @@ export default function FeaturedCard({ property }: FeaturedCardProps) {
             e.stopPropagation();
             setIsFavorite(!isFavorite);
           }}
-          className={`absolute top-4 right-4 w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition-all cursor-pointer ${
+          className={`absolute top-4 right-4 z-20 w-10 h-10 rounded-full backdrop-blur-sm flex items-center justify-center transition-all cursor-pointer ${
             isFavorite
               ? "bg-mosque text-white"
               : "bg-white/90 text-nordic-dark hover:bg-mosque hover:text-white"
@@ -46,7 +52,7 @@ export default function FeaturedCard({ property }: FeaturedCardProps) {
         </button>
         <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
       </div>
-      <div className="p-6 relative flex flex-col flex-grow justify-between">
+      <div className="p-6 relative z-10 flex flex-col flex-grow justify-between">
         <div className="flex justify-between items-start mb-2">
           <div>
             <h3 className="text-xl font-medium text-nordic-dark group-hover:text-mosque transition-colors">
