@@ -24,9 +24,12 @@ function formatPrice(price: number, type: "sale" | "rent") {
 }
 
 function getGalleryImages(property: PropertyWithImages) {
-  return property.property_images.length > 0
-    ? property.property_images.map((image) => image.image_url)
-    : [property.image_url];
+  return Array.from(
+    new Set([
+      property.image_url,
+      ...property.property_images.map((image) => image.image_url),
+    ])
+  ).filter(Boolean);
 }
 
 export async function generateMetadata({ params }: PropertyPageProps) {
