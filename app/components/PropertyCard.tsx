@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Property } from "../data/mockProperties";
+import { Property } from "@/lib/queries/properties";
 
 interface PropertyCardProps {
   property: Property;
 }
 
 export default function PropertyCard({ property }: PropertyCardProps) {
-  const [isFavorite, setIsFavorite] = useState(property.isFavorite || false);
+  const [isFavorite, setIsFavorite] = useState(property.is_favorite || false);
 
   const formatPrice = (price: number, type: "sale" | "rent") => {
     const formatted = new Intl.NumberFormat("en-US", {
@@ -26,7 +26,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <img
           alt={property.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          src={property.imageUrl}
+          src={property.image_url}
         />
         <button
           onClick={(e) => {
