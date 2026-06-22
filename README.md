@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Directorio de Propiedades
 
-## Getting Started
+Aplicación web para consultar, filtrar y visualizar propiedades inmobiliarias.  
+El proyecto permite explorar inmuebles mediante filtros, paginación, imágenes y páginas de detalle.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Listado de propiedades inmobiliarias.
+- Filtros para buscar propiedades.
+- Paginación de resultados.
+- Visualización de imágenes de cada propiedad.
+- Página de detalle por propiedad usando `slug`.
+- Integración con Supabase para almacenar y consultar datos.
+- Diseño responsive para computador, tablet y móvil.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologías utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- ESLint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estructura del proyecto
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+├── app/                 # Rutas, páginas y componentes de Next.js
+├── antigravity/         # Componentes o configuraciones adicionales del proyecto
+├── lib/                 # Funciones auxiliares y lógica de acceso a datos
+├── public/              # Imágenes, íconos y archivos públicos
+├── supabase/            # Configuración, consultas y recursos de Supabase
+├── .gitignore           # Archivos ignorados por Git
+├── eslint.config.mjs    # Configuración de ESLint
+├── next.config.ts       # Configuración de Next.js
+├── package.json         # Dependencias y scripts del proyecto
+├── postcss.config.mjs   # Configuración de PostCSS
+└── tsconfig.json        # Configuración de TypeScript
